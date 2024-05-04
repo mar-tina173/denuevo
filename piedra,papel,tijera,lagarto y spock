@@ -16,28 +16,15 @@ int puntajedelIA = 0;
 int veces = 0;
 
 
-
+bool accion =true ;
 Random IA = new Random();
-while (true)
-{
-    bool accion = false;
-
-    if (puntajedeljugador >= 3)
-    {
-        Console.WriteLine("El puntaje del jugador es mayor o igual a 3.");
-        accion = true;
-    }
-
-    if (puntajedelIA >= 3)
-    {
-        Console.WriteLine("El puntaje de la IA es mayor o igual a 3.");
-        accion = true;
-    }
-    accion = false;
+while (accion==true)
+{ 
+  
 
     selecciondelIA = IA.Next(1, 4);
 
-    Console.WriteLine($"El marcador actual es de {puntajedelIA} puntos para la IA y {puntajedeljugador} puntos para {n1}");
+    Console.WriteLine($"El marcador actushal es de {puntajedelIA} puntos para la IA y {puntajedeljugador} puntos para {n1}");
     Console.WriteLine("ingrese {1} para piedra, ingrese {2} para papel, ingrese {3} para tijera, ingrese {4} para lagarto e ingrese {5} para spock");
     selecciondeljugador = Convert.ToInt32(Console.ReadLine());
 
@@ -301,7 +288,17 @@ while (true)
             }
         }
     }
+    if(puntajedelIA>3)
+    {
+        accion = false;
+    }
+    else
+    {
+        if(puntajedeljugador>3)
+        accion = false;
+    }
 }
+
 Console.WriteLine($"la IA tuvo un total de {puntajedelIA} puntos y el juggador {n1} tuvo un total de {puntajedeljugador} puntos.");
 
 if (puntajedelIA < puntajedeljugador)
